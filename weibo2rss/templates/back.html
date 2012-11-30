@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block text %}
+<p>以下是你的Weibo rss订阅地址：</p>
+{% endblock %}
+
+{% block picurl %}
+<p><a href="/feed/{{ usrid }}">点击订阅</a></p>
+{% endblock %}
