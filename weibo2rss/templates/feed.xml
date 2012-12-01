@@ -2,7 +2,7 @@
     xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
-<atom:link href="/" rel="self" type="application/rss+xml" />
+<atom:link href="http://zhu327.eicp.net:8000" rel="self" type="application/rss+xml" />
 <title>{{ user.name }}的微博</title>
 <link>http://weibo.com/u/{{ user.id }}</link>
 <description></description>
@@ -11,17 +11,10 @@
 {% for tweet in statuses %}
 <item>
 <title><![CDATA[{{ tweet.text }}]]></title>
-<description>
-<![CDATA[
-{{ tweet.text }}
-{% if tweet.original_pic %}
-<img src="{{ tweet.original_pic }}" border=0 /">
-{% endif %}
-]]>
-</description>
 <author>{{ tweet.user.name }}</author>
+<description><![CDATA[{{ tweet.text }}{% if tweet.original_pic %}<img src="{{ tweet.original_pic }}" border=0 /">{% endif %}]]></description>
 <pubDate>{{ tweet.created_at }}</pubDate>
-<guid>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}?source={{ appkey }}</guid>
+<guid>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}</guid>
 <link>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}?source={{ appkey }}</link>
 </item>
 {% endfor %}
