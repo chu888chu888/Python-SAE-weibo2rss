@@ -1,3 +1,4 @@
+
 <rss version="2.0" 
     xmlns:atom="http://www.w3.org/2005/Atom">
 
@@ -11,7 +12,6 @@
 {% for tweet in statuses %}
 <item>
 <title><![CDATA[{{ tweet.text }}]]></title>
-<author>{{ tweet.user.name }}</author>
 <description><![CDATA[{{ tweet.text }}{% if tweet.original_pic %}<img src="{{ tweet.original_pic }}" border=0 /">{% endif %}]]></description>
 <pubDate>{{ tweet.created_at }}</pubDate>
 <guid>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}</guid>
