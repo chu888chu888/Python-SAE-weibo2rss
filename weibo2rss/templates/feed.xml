@@ -1,48 +1,29 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
-<rss version="2.0">
+<rss version="2.0" 
+    xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
-
-    <title>{{ user.name }}的微博</title>
-
-    <link>http://weibo.com/u/{{ user.id }}</link>
-
-    <description>由weibo2rss生成的feed</description>
-
-    <language>zh-cn</language>
-
-    <copyright></copyright> 
-
-    <pubDate>{{ datenow }}</pubDate>
-
-    {% for tweet in statuses %}
-
-        <item>
-    
-            <title><![CDATA[{{ tweet.text }}]]></title>
-    
-            <link>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}?source={{ appkey }}</link>
-    
-            <author>{{ tweet.user.name }}</author>
-    
-            <pubDate>{{ tweet.created_at }}</pubDate>
-    
-            <description>
-                <![CDATA[
-                    <p>{{ tweet.text }}</p>
-                    {% if tweet.original_pic %}
-                        <img src="{{ tweet.original_pic }}" alt="" style="border:0px">
-                    {% endif %}
-                ]]>
-            </description>
-    
-            <category></category>
-    
-        </item>
-
-    {% endfor %}
-
+<atom:link href="/" rel="self" type="application/rss+xml" />
+<title>{{ user.name }}的微博</title>
+<link>http://weibo.com/u/{{ user.id }}</link>
+<description></description>
+<language>zh-cn</language> 
+<lastBuildDate>{{ datenow }}</lastBuildDate>
+{% for tweet in statuses %}
+<item>
+<title><![CDATA[{{ tweet.text }}]]></title>
+<description>
+<![CDATA[
+{{ tweet.text }}
+{% if tweet.original_pic %}
+<img src="{{ tweet.original_pic }}" border=0 /">
+{% endif %}
+]]>
+</description>
+<author>{{ tweet.user.name }}</author>
+<pubDate>{{ tweet.created_at }}</pubDate>
+<guid>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}?source={{ appkey }}</guid>
+<link>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}?source={{ appkey }}</link>
+</item>
+{% endfor %}
 </channel>
-
 </rss>
