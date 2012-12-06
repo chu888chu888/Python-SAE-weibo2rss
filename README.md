@@ -40,6 +40,7 @@ SAE上创建一个版本，把修改好的代码svn上传到该版本上，就�
 ### 开发环境 ###
 
 Weibo python SDK
+
 Django
 
 ### 设计思路 ###
