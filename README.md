@@ -10,6 +10,7 @@ Weibo2rss是一个通过Django实现的微博小工具，主要功能实现微�
 10月的时候T开始学习python和Django，既然有需求，那不如学以致用，所有有了Weibo2rss这个项目。12月IFTTT可以绑定影响笔记，所以T又实现了收藏微博的RSS，这样就可以把微博直接收藏到印象笔记了。
 
 T的新浪微博: [@Timmy](http://weibo.com/u/2283077624) 请私信联系
+
 [Weibo2rss demo](http://pythonweibo.sinaapp.com)
 ***
 
@@ -24,13 +25,15 @@ Weibo2rss是部署到SAE上的APP，你需要在SAE上新建一个python app，�
 *  weibo2rss/weibotimeline.py
 
 > APP_KEY = 'xxxx' # 你申请的微博APP_KEY
+
 > APP_SECRET = 'xxxx' # 你申请的微博APP_SECRET
+
 > CALLBACK_URL = 'http://xxxx/callback' # 你的网址回调页，需与微博开放平台上设置的地址一致
 
 导入数据库：在SAE上初始化mysql后，导入weibo2rss.sql里保存的sql语句。
 
 SAE上创建一个版本，把修改好的代码svn上传到该版本上，就完成部署了。
-----
+****
 
 ## 开发说明 ##
 
