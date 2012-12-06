@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
 {% block text %}
-<p>以下是你的Weibo rss订阅地址：</p>
+<p>1.weibo timeline rss订阅地址：</p>
+<p><a href="/timeline/{{ uid }}">http://pythonweibo.sinaapp.com/timeline/{{ uid }}</a></p>
+<p></p>
 {% endblock %}
 
 {% block picurl %}
-<p><a href="/feed/{{ usrid }}">点击订阅</a></p>
+<p>2.weibo favorites rss订阅地址：</p>
+<p><a href="/favorites/{{ uid }}">http://pythonweibo.sinaapp.com/favorites/{{ uid }}</a></p>
+<p></p>
+<p>以上RSS链接如访问失败，说明微博授权已过期，请从新授权即可</p>
 {% endblock %}

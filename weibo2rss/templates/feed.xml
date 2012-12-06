@@ -2,17 +2,17 @@
     xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
-<atom:link href="http://zhu327.eicp.net:8000" rel="self" type="application/rss+xml" />
-<title>{{ user.name }}的微博</title>
+<atom:link href="http://pythonweibo.sinaapp.com" rel="self" type="application/rss+xml" />
+<title>{{ user.name }}的新浪微博</title>
 <link>http://weibo.com/u/{{ user.id }}</link>
 <description></description>
-<language>zh-cn</language> 
-<lastBuildDate>{{ datenow }}</lastBuildDate>
+<language>zh-cn</language>
+<lastBuildDate>{{ statuses.0.created_at }}</lastBuildDate>
 {% for tweet in statuses %}
 <item>
 <title><![CDATA[{{ tweet.text }}]]></title>
 <author>{{ tweet.user.name }}</author>
-<description><![CDATA[<p>{{ tweet.text }}</p>{% if tweet.original_pic %}<p><img src="{{ tweet.original_pic }}" border=0 /></p>{% endif %}]]></description>
+<description><![CDATA[<p>{{ tweet.text }}</p>{% if tweet.original_pic %}<p><img border="0" src="{{ tweet.original_pic }}" /></p>{% endif %}]]></description>
 <pubDate>{{ tweet.created_at }}</pubDate>
 <guid>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}</guid>
 <link>http://api.t.sina.com.cn/{{ tweet.user.id }}/statuses/{{ tweet.id }}?source={{ appkey }}</link>

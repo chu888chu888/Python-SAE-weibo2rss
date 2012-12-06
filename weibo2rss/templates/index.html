@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
 {% block text %}
-<p>输入你的微博ID以获取rss订阅地址:</p>
-{% endblock %}
-
-{% block form %}
-<form action="/back/" method="get">
-    <input type="text" name="usrid">
-    <input type="submit" value="GET">
-</form>
+<p>本站提供weibo timeline与weibo favorites的RSS输出服务</p>
+<p>关于RSS的用法提供两种典型使用场景:</p>
+<p>1.weibo timeline to RSS</p>
+<p>通过与<a href="http://www.ifttt.com">IFTTT</a>或者<a href="http://feedburner.google.com">Google feedburner</a>对接,同步用户的最新微博到<a href="http://www.twitter.com">Twitter</a></p>
+<p>2.weibo favorites to RSS</p>
+<p>通过与<a href="http://www.ifttt.com">IFTTT</a>对接,同步用户收藏的微博到<a href="http://www.yinxiang.com">印象笔记</a></p>
+<br />
+<p>点击授权以获取RSS链接地址</p>
 {% endblock %}
 
 {% block picurl %}
-<hr>
 <a href="{{ url }}">
 <img border="0" src="http://www.sinaimg.cn/blog/developer/wiki/48.png" />
 </a>

@@ -1,0 +1,22 @@
+<rss version="2.0" 
+    xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<atom:link href="http://pythonweibo.sinaapp.com" rel="self" type="application/rss+xml" />
+<title>{{ user.name }}的微博收藏</title>
+<link>http://weibo.com/u/{{ user.id }}</link>
+<description></description>
+<language>zh-cn</language>
+<lastBuildDate>{{ favorites.0.favorited_time }}</lastBuildDate>
+{% for tweet in favorites %}
+<item>
+<title><![CDATA[{{ tweet.status.text }}]]></title>
+<author>{{ tweet.status.user.name }}</author>
+<description><![CDATA[<p>{{ tweet.status.text }}</p>{% if tweet.status.original_pic %}<p><img border="0" src="{{ tweet.status.original_pic }}" /></p>{% endif %}]]></description>
+<pubDate>{{ tweet.favorited_time }}</pubDate>
+<guid>http://api.t.sina.com.cn/{{ tweet.status.user.id }}/statuses/{{ tweet.status.id }}</guid>
+<link>http://api.t.sina.com.cn/{{ tweet.status.user.id }}/statuses/{{ tweet.status.id }}?source={{ appkey }}</link>
+</item>
+{% endfor %}
+</channel>
+</rss>

@@ -3,23 +3,10 @@
 from django.conf.urls import patterns, include, url
 from weibo2rss.views import *
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
-
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'weibo2rss.views.home', name='home'),
-    # url(r'^weibo2rss/', include('weibo2rss.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-
     url(r'^$', getfeedurl),    # 主页
-    url(r'^back/$', callback),     # 返回页，返回rss链接
     url(r'^callback/$', callback),     # 微博授权返回页
-    url(r'^feed/(?P<usrid>\d+)/$', getfeed),    # 微博feed页，通过user id获取
+    url(r'^timeline/(?P<uid>\d+)/$', timeline),    # 微博timeline rss页，通过user id获取
+    url(r'^favorites/(?P<uid>\d+)/$', favorites),    # 微博favorites rss页，通过user id获取
+    url(r'^admin/root/weibo/clean/$', clean),    # 用于定时清理数据库过期授权，非对外页面，清理周期在config.yaml下cron字段定义
 )
