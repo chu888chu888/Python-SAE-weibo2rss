@@ -12,28 +12,28 @@ Weibo2rss是一个通过Django实现的微博小工具，主要功能实现微�
 T的新浪微博: [@Timmy](http://weibo.com/u/2283077624) 请私信联系
 
 [Weibo2rss demo](http://pythonweibo.sinaapp.com)
-***
+
 
 ## 部署 ##
 
 Weibo2rss是部署到SAE上的APP，你需要在SAE上新建一个python app，到新浪微博开放平台申请一个APP。对以下文件作对应修改。
 
-*  config.yaml
+config.yaml
 
-> name: ''xxxx'' # 这里写你在SAE上申请的APP name
+    name: ''xxxx'' # 这里写你在SAE上申请的APP name
 
-*  weibo2rss/weibotimeline.py
 
-> APP_KEY = 'xxxx' # 你申请的微博APP_KEY
+weibo2rss/weibotimeline.py
 
-> APP_SECRET = 'xxxx' # 你申请的微博APP_SECRET
+    APP_KEY = 'xxxx' # 你申请的微博APP_KEY
+    APP_SECRET = 'xxxx' # 你申请的微博APP_SECRET
+    CALLBACK_URL = 'http://xxxx/callback' # 你的网址回调页，需与微博开放平台上设置的地址一致
 
-> CALLBACK_URL = 'http://xxxx/callback' # 你的网址回调页，需与微博开放平台上设置的地址一致
 
 导入数据库：在SAE上初始化mysql后，导入weibo2rss.sql里保存的sql语句。
 
 SAE上创建一个版本，把修改好的代码svn上传到该版本上，就完成部署了。
-****
+
 
 ## 开发说明 ##
 
